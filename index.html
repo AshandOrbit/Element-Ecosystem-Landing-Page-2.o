@@ -496,7 +496,7 @@
         .products-grid {
             display: grid;
             grid-template-columns: repeat(5, 1fr);
-            gap: 1.5rem;
+            gap: 1.25rem;
         }
         
         .product-card {
@@ -677,7 +677,7 @@
         
         .flagship-grid {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
+            grid-template-columns: repeat(3, 1fr);
             gap: 2rem;
             position: relative;
         }
@@ -686,7 +686,7 @@
             background: var(--smoke);
             border: 2px solid var(--slate);
             border-radius: 24px;
-            padding: 2.5rem;
+            padding: 2rem;
             text-align: center;
             transition: all 0.4s;
             text-decoration: none;
@@ -702,6 +702,10 @@
             background: linear-gradient(90deg, var(--core-gold), #FFD700, var(--core-gold));
         }
         
+        .flagship-card.twofifty::before {
+            background: linear-gradient(90deg, var(--lime), #4A7C6B, var(--lime));
+        }
+        
         .flagship-card::after {
             content: '';
             position: absolute;
@@ -710,10 +714,19 @@
             pointer-events: none;
         }
         
+        .flagship-card.twofifty::after {
+            background: radial-gradient(ellipse at center top, rgba(232, 255, 0, 0.1) 0%, transparent 60%);
+        }
+        
         .flagship-card:hover {
             transform: translateY(-8px);
             border-color: var(--core-gold);
             box-shadow: 0 30px 80px rgba(0,0,0,0.5), 0 0 60px rgba(212, 175, 55, 0.3);
+        }
+        
+        .flagship-card.twofifty:hover {
+            border-color: var(--lime);
+            box-shadow: 0 30px 80px rgba(0,0,0,0.5), 0 0 60px rgba(232, 255, 0, 0.3);
         }
         
         .flagship-badge {
@@ -731,9 +744,13 @@
             z-index: 1;
         }
         
+        .flagship-badge.earth {
+            background: linear-gradient(135deg, var(--lime) 0%, #4A7C6B 100%);
+        }
+        
         .flagship-image {
-            width: 220px;
-            height: 220px;
+            width: 180px;
+            height: 180px;
             margin: 0 auto 1.5rem;
             border-radius: 50%;
             overflow: hidden;
@@ -741,6 +758,20 @@
             box-shadow: 0 0 40px rgba(212, 175, 55, 0.3);
             position: relative;
             z-index: 1;
+        }
+        
+        .flagship-image.earth-icon {
+            border-color: var(--lime);
+            box-shadow: 0 0 40px rgba(232, 255, 0, 0.3);
+            background: linear-gradient(135deg, var(--velvet) 0%, var(--smoke) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .flagship-image.earth-icon span {
+            font-size: 4rem;
+            color: var(--lime);
         }
         
         .flagship-image img {
@@ -778,6 +809,20 @@
             margin-bottom: 1.5rem;
             position: relative;
             z-index: 1;
+        }
+        
+        .flagship-card.twofifty .flagship-subtitle {
+            color: var(--lime);
+        }
+        
+        .flagship-card.twofifty .flagship-link {
+            border-color: var(--lime);
+            color: var(--lime);
+        }
+        
+        .flagship-card.twofifty:hover .flagship-link {
+            background: var(--lime);
+            color: var(--noir);
         }
         
         .flagship-stats {
@@ -1025,7 +1070,7 @@
             .partners-grid { grid-template-columns: repeat(3, 1fr); }
             .products-grid { grid-template-columns: repeat(3, 1fr); }
             .entries-grid { grid-template-columns: repeat(3, 1fr); }
-            .flagship-grid { grid-template-columns: 1fr; max-width: 600px; margin: 0 auto; }
+            .flagship-grid { grid-template-columns: repeat(3, 1fr); }
             .footer-grid { grid-template-columns: repeat(3, 1fr); }
         }
         
@@ -1034,6 +1079,7 @@
             .partners-grid { grid-template-columns: repeat(2, 1fr); }
             .products-grid { grid-template-columns: repeat(2, 1fr); }
             .entries-grid { grid-template-columns: repeat(2, 1fr); }
+            .flagship-grid { grid-template-columns: 1fr; max-width: 450px; margin: 0 auto; }
             .gca-content { grid-template-columns: 1fr; }
             .chain-visual { gap: 1rem; }
             .chain-arrow { display: none; }
@@ -1315,6 +1361,31 @@
                     <p class="flagship-desc">From the estate of entertainment legend Dean Martin. The engagement ring he gave to Jeanne Biegger in 1965 — a symbol of Hollywood's golden age, now with complete verified provenance.</p>
                     <span class="flagship-link">View Collection →</span>
                 </a>
+                
+                <a href="https://twofiftyjewelry.com" target="_blank" class="flagship-card twofifty">
+                    <div class="flagship-badge earth">Earth Day 2026</div>
+                    <div class="flagship-image earth-icon">
+                        <span>✦</span>
+                    </div>
+                    <h3 class="flagship-name">TwoFifty Collection</h3>
+                    <p class="flagship-subtitle">Art in Diamond Form. Verified at Source.</p>
+                    <div class="flagship-stats">
+                        <div class="flagship-stat">
+                            <span class="stat-value">STRIA</span>
+                            <span class="stat-label">Certified</span>
+                        </div>
+                        <div class="flagship-stat">
+                            <span class="stat-value">100%</span>
+                            <span class="stat-label">Traceable</span>
+                        </div>
+                        <div class="flagship-stat">
+                            <span class="stat-value">Women</span>
+                            <span class="stat-label">Forward</span>
+                        </div>
+                    </div>
+                    <p class="flagship-desc">Artistic custom jewelry for remarkable women — now with full verified provenance. The first collection built on STRIA certification and MineralTrace sourcing. Launching alongside Everyday Offset.</p>
+                    <span class="flagship-link">Visit TwoFifty →</span>
+                </a>
             </div>
         </div>
     </section>
@@ -1381,11 +1452,11 @@
                     <span class="product-link">View Collection</span>
                 </a>
                 
-                <a href="#" class="product-card">
+                <a href="https://twofiftyjewelry.com" target="_blank" class="product-card">
                     <span class="product-badge">Earth Day 2026</span>
-                    <h3 class="product-name">Everyday Offset</h3>
-                    <p class="product-desc">220-page practical guide launching alongside STRIA and MineralTrace opportunities. 100+ ways to live lighter, spend smarter.</p>
-                    <span class="product-link">Learn More</span>
+                    <h3 class="product-name">TwoFifty × Element United</h3>
+                    <p class="product-desc">Art in diamond form — now with full STRIA certification. The first verified collection. Plus: Everyday Offset book launch.</p>
+                    <span class="product-link">Visit TwoFifty</span>
                 </a>
             </div>
         </div>
