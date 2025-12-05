@@ -23,6 +23,8 @@
             --emerald-light: #4A7C6B;
             --burgundy: #722F37;
             --burgundy-light: #8B3A44;
+            --rose-pink: #E8B4BC;
+            --tiffany-blue: #81D8D0;
             
             /* Neutrals */
             --cream: #FDF5E6;
@@ -495,8 +497,8 @@
         
         .products-grid {
             display: grid;
-            grid-template-columns: repeat(5, 1fr);
-            gap: 1.25rem;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
         }
         
         .product-card {
@@ -706,6 +708,42 @@
             background: linear-gradient(90deg, var(--lime), #4A7C6B, var(--lime));
         }
         
+        .flagship-card.tiffany::before {
+            background: linear-gradient(90deg, var(--rose-pink), var(--tiffany-blue), var(--rose-pink));
+        }
+        
+        .flagship-card.tiffany::after {
+            background: radial-gradient(ellipse at center top, rgba(232, 180, 188, 0.15) 0%, transparent 60%);
+        }
+        
+        .flagship-card.tiffany:hover {
+            border-color: var(--rose-pink);
+            box-shadow: 0 30px 80px rgba(0,0,0,0.5), 0 0 60px rgba(232, 180, 188, 0.4);
+        }
+        
+        .flagship-card.tiffany .flagship-badge {
+            background: linear-gradient(135deg, var(--rose-pink) 0%, var(--tiffany-blue) 100%);
+        }
+        
+        .flagship-card.tiffany .flagship-subtitle {
+            color: var(--rose-pink);
+        }
+        
+        .flagship-card.tiffany .flagship-image {
+            border-color: var(--rose-pink);
+            box-shadow: 0 0 40px rgba(232, 180, 188, 0.4);
+        }
+        
+        .flagship-card.tiffany .flagship-link {
+            border-color: var(--rose-pink);
+            color: var(--rose-pink);
+        }
+        
+        .flagship-card.tiffany:hover .flagship-link {
+            background: var(--rose-pink);
+            color: var(--noir);
+        }
+        
         .flagship-card::after {
             content: '';
             position: absolute;
@@ -772,6 +810,52 @@
         .flagship-image.earth-icon span {
             font-size: 4rem;
             color: var(--lime);
+        }
+        
+        .flagship-dual-image {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .flagship-image-small {
+            width: 120px;
+            height: 120px;
+            border-radius: 16px;
+            overflow: hidden;
+            border: 2px solid var(--lime);
+            box-shadow: 0 0 25px rgba(232, 255, 0, 0.25);
+            transition: all 0.3s;
+        }
+        
+        .flagship-image-small.book {
+            border-radius: 8px;
+        }
+        
+        .flagship-image-small img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .flagship-image-small.earth-icon {
+            background: linear-gradient(135deg, var(--velvet) 0%, var(--smoke) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+        }
+        
+        .flagship-image-small.earth-icon span {
+            font-size: 2.5rem;
+            color: var(--lime);
+        }
+        
+        .flagship-card:hover .flagship-image-small {
+            transform: scale(1.05);
         }
         
         .flagship-image img {
@@ -1068,7 +1152,7 @@
         @media (max-width: 1100px) {
             .ecosystem-grid { grid-template-columns: repeat(3, 1fr); }
             .partners-grid { grid-template-columns: repeat(3, 1fr); }
-            .products-grid { grid-template-columns: repeat(3, 1fr); }
+            .products-grid { grid-template-columns: repeat(2, 1fr); }
             .entries-grid { grid-template-columns: repeat(3, 1fr); }
             .flagship-grid { grid-template-columns: repeat(3, 1fr); }
             .footer-grid { grid-template-columns: repeat(3, 1fr); }
@@ -1364,53 +1448,33 @@
                 
                 <a href="https://twofiftyjewelry.com" target="_blank" class="flagship-card twofifty">
                     <div class="flagship-badge earth">Earth Day 2026</div>
-                    <div class="flagship-image earth-icon">
-                        <span>✦</span>
+                    <div class="flagship-dual-image">
+                        <div class="flagship-image-small book">
+                            <img src="everyday_offset_cover.png" alt="Everyday Offset Book Cover">
+                        </div>
+                        <div class="flagship-image-small jewelry earth-icon">
+                            <span>✦</span>
+                        </div>
                     </div>
-                    <h3 class="flagship-name">TwoFifty Collection</h3>
-                    <p class="flagship-subtitle">Art in Diamond Form. Verified at Source.</p>
+                    <h3 class="flagship-name">TwoFifty + Everyday Offset</h3>
+                    <p class="flagship-subtitle">Art in Diamond Form. Live Lighter, Spend Smarter.</p>
                     <div class="flagship-stats">
                         <div class="flagship-stat">
                             <span class="stat-value">STRIA</span>
                             <span class="stat-label">Certified</span>
                         </div>
                         <div class="flagship-stat">
+                            <span class="stat-value">220</span>
+                            <span class="stat-label">Pages</span>
+                        </div>
+                        <div class="flagship-stat">
                             <span class="stat-value">100%</span>
                             <span class="stat-label">Traceable</span>
                         </div>
-                        <div class="flagship-stat">
-                            <span class="stat-value">Women</span>
-                            <span class="stat-label">Forward</span>
-                        </div>
                     </div>
-                    <p class="flagship-desc">Artistic custom jewelry for remarkable women — now with full verified provenance. The first collection built on STRIA certification and MineralTrace sourcing. Launching alongside Everyday Offset.</p>
-                    <span class="flagship-link">Visit TwoFifty →</span>
+                    <p class="flagship-desc">The first jewelry collection built on STRIA certification, plus the consumer guide to living sustainably. Remarkable women. Remarkable provenance. Remarkable impact.</p>
+                    <span class="flagship-link">Explore →</span>
                 </a>
-            </div>
-        </div>
-    </section>
-    
-    <section class="section gca-section">
-        <div class="container">
-            <div class="gca-content">
-                <div class="gca-text">
-                    <h3>Play the <span class="lime">Real World</span></h3>
-                    <p>Gold Crew Atlas is an interactive mining experience that combines gaming, education, and real-world exploration. Navigate actual mining sites. Learn about extraction and processing. Earn badges as you explore.</p>
-                    <ul class="gca-features">
-                        <li>200+ real mining sites mapped</li>
-                        <li>40+ countries represented</li>
-                        <li>12 resource types tracked</li>
-                        <li>Satellite imagery integration</li>
-                        <li>Educational deep dives</li>
-                        <li>Community leaderboards</li>
-                    </ul>
-                    <a href="#" class="btn-primary">Coming Soon</a>
-                </div>
-                <div class="gca-visual">
-                    <div class="gca-globe">🌍</div>
-                    <div class="gca-title">GOLD CREW ATLAS</div>
-                    <div class="gca-tagline">Play the Real World</div>
-                </div>
             </div>
         </div>
     </section>
@@ -1418,9 +1482,9 @@
     <section class="section products-section" id="products">
         <div class="container">
             <div class="section-header">
-                <p class="section-label">Market Ready</p>
-                <h2 class="section-title">Products &amp; Launches</h2>
-                <p class="section-subtitle">Real products. Real impact. Available now and coming 2026.</p>
+                <p class="section-label">Available Now</p>
+                <h2 class="section-title">Products &amp; Platforms</h2>
+                <p class="section-subtitle">Real products. Real impact. Start today.</p>
             </div>
             
             <div class="products-grid">
@@ -1434,29 +1498,22 @@
                 <a href="https://ashandorbit.github.io/OffsetBraceletNewBranding/" target="_blank" class="product-card">
                     <span class="product-badge">Available Now</span>
                     <h3 class="product-name">Ghana Restoration Bracelet</h3>
-                    <p class="product-desc">Consumer product funding land restoration in Ghana devastated by gold mining. Supporting villagers and replanting cocoa trees.</p>
+                    <p class="product-desc">Handcrafted in Ghana. Funding land restoration. Supporting villagers and replanting cocoa trees.</p>
                     <span class="product-link">Support Restoration</span>
                 </a>
                 
-                <a href="https://ashandorbit.github.io/Wright-Repository/" target="_blank" class="product-card featured">
-                    <span class="product-badge gold">Valentine's Day 2026</span>
-                    <h3 class="product-name">The Tiffany Diamond</h3>
-                    <p class="product-desc">7th largest diamond ever sold by Tiffany & Co. The Thurston Legacy Vault — $1.5M+ with full White Glove certification.</p>
-                    <span class="product-link">View Vault</span>
-                </a>
-                
-                <a href="https://ashandorbit.github.io/NextHeir-Dean-Martin-Launch/" target="_blank" class="product-card featured">
-                    <span class="product-badge gold">March 2026</span>
-                    <h3 class="product-name">Dean Martin Ring</h3>
-                    <p class="product-desc">Spring engagement launch. A Hollywood love story in diamonds. The flagship NextHeir Collections piece with full verified provenance.</p>
-                    <span class="product-link">View Collection</span>
-                </a>
-                
-                <a href="https://twofiftyjewelry.com" target="_blank" class="product-card">
+                <a href="#" class="product-card">
                     <span class="product-badge">Earth Day 2026</span>
-                    <h3 class="product-name">TwoFifty × Element United</h3>
-                    <p class="product-desc">Art in diamond form — now with full STRIA certification. The first verified collection. Plus: Everyday Offset book launch.</p>
-                    <span class="product-link">Visit TwoFifty</span>
+                    <h3 class="product-name">Everyday Offset</h3>
+                    <p class="product-desc">220 pages. Hundreds of ways to save thousands, live sustainably, and shrink your footprint. Live lighter, spend smarter.</p>
+                    <span class="product-link">Coming Soon</span>
+                </a>
+                
+                <a href="https://shop.elementunited.com" target="_blank" class="product-card">
+                    <span class="product-badge">Shop</span>
+                    <h3 class="product-name">Element Store</h3>
+                    <p class="product-desc">Gold, silver, goldbacks, digital goods — verified and ready. The asset door for collectors and enthusiasts.</p>
+                    <span class="product-link">Visit Store</span>
                 </a>
             </div>
         </div>
